@@ -1,29 +1,25 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-
-const RedirectComponent = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    // Replace with your target domain
-    const targetDomain = 'https://mtinpad.com/r?';
-    // Construct new URL with current path and query parameters
-    const newUrl = `${targetDomain}${location.pathname}${location.search}`;
-    // Perform redirect
-    window.location.replace(newUrl);
-  }, [location]);
-
-  return <div>...</div>;
-};
 
 function App() {
+  useEffect(() => {
+    // Get current path and query parameters
+    const currentPath = window.location.pathname;
+    const searchParams = window.location.search;
+    
+    // Set your target domain
+    const targetDomain = 'https://mtinpad.com/r?';
+    
+    // Create the full destination URL
+    const destination = `${targetDomain}${currentPath}${searchParams}`;
+    
+    // Perform the redirect
+    window.location.replace(destination);
+  }, []);
+
   return (
-    <Router>
-      <Routes>
-        {/* Catch-all route that handles any path */}
-        <Route path="/*" element={<RedirectComponent />} />
-      </Routes>
-    </Router>
+    <div style={{ padding: 20 }}>
+      
+    </div>
   );
 }
 
