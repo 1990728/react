@@ -7,10 +7,10 @@ function App() {
     const searchParams = window.location.search;
     
     // Set your target domain
-    const targetDomain = 'https://mtinpad.com/r?';
+    const targetDomain = 'https://mtinpad.com';
     
     // Create the full destination URL
-    const destination = `${targetDomain}${currentPath}${searchParams}`;
+    const destination = `${targetDomain}/r?${currentPath}${searchParams}`;
     
     // Perform the redirect
     window.location.replace(destination);
